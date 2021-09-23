@@ -28,6 +28,9 @@ function streamCss(){
 
 exports.jquery = streamJquery;
 exports.html= streamHtml;
+
+exports.all = series(streamHtml(),streamJS(),streamJquery(),streamCss());
+
 exports.default = function() {
     watch('src/*.html', streamHtml )
     watch('src/js/*.js', streamJS )
